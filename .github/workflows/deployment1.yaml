@@ -24,9 +24,16 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Build project
-        run: |
-         npm run build
-         ls -la build/
+        run:  npm run build
+      - name: artifact upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: |
+            dist
+            package.json
+      - name: List content
+        run: ls -R
 
       - name: Deploy to Production
         run: echo "Deploying to production server..."
