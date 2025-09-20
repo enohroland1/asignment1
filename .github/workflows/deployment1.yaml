@@ -25,3 +25,5 @@ jobs:
         run: npm test
       - name: Build project
         run: npm run build
+      - name: Deploy to Production
+        run: echo "Deploying to production server..."
